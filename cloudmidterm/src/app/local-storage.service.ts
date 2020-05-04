@@ -15,6 +15,23 @@ export class LocalStorageService {
   public users: User[];
 
   constructor(@Inject(LOCAL_STORAGE) private storage: StorageService, public http: HttpClient) { }
+  public StoreRegisterDetailsInLocalStorage(fg: FormGroup): void {
+
+    /*
+    this.storage.set('FIRST_NAME', fg.get('firstName').value);
+    this.storage.set('LAST_NAME', fg.get('lastName').value);
+    this.storage.set('EMAIL_ID', fg.get('email').value);
+    this.storage.set('PASSWORD', fg.get('password').value);
+    */
+
+    const obj = {
+      email: fg.get('email').value,
+      password: fg.get('password').value
+    };
+
+    this.http.post(`${this.uri}/add`, obj)
+      .subscribe(res => console.log('Done'));
+  }
 
 
   public async CheckUserCredentials(fg: FormGroup): Promise<boolean> {

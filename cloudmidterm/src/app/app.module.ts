@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormGroup,FormControl} from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
+
 
 import { SurveyComponent } from './survey/survey.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,24 +11,26 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatButtonModule, MatCardModule,
+  MatButtonModule, MatCardModule, MatExpansionModule,
   MatFormFieldControl,
   MatFormFieldModule,
   MatInputModule,
-  MatLabel, MatRadioModule,
-  MatSelectModule,
+  MatLabel, MatListModule, MatRadioModule,
+  MatSelectModule, MatSidenavModule, MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {LocalStorageService} from './local-storage.service';
+import { VisualizationComponent } from './visualization/visualization.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SurveyComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    VisualizationComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +42,14 @@ import {LocalStorageService} from './local-storage.service';
     MatInputModule,
     BrowserAnimationsModule,
     MatRadioModule,
+    MatTabsModule,
     MatCardModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatListModule,
+    MatExpansionModule,
+    MatSidenavModule
   ],
   providers: [LocalStorageService],
   bootstrap: [AppComponent]
