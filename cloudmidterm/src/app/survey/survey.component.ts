@@ -13,7 +13,7 @@ import {LocalStorageService} from '../local-storage.service';
 })
 export class SurveyComponent implements OnInit {
   surveyForm: FormGroup;
-  constructor(public fb: FormBuilder, public http: HttpClient, public localStorage: LocalStorageService) { }
+  constructor(public fb: FormBuilder, public http: HttpClient, public localStorage: LocalStorageService , private router: Router) { }
 
   ngOnInit() {
     this.surveyForm = this.fb.group({
@@ -57,6 +57,7 @@ export class SurveyComponent implements OnInit {
       + '&WorkLifeBalance=' + this.surveyForm.get('WorkLifeBalance').value
       + '&YearsInCurrentRole=' + this.surveyForm.get('YearsInCurrentRole').value
       + '&TotalWorkingYears=' + this.surveyForm.get('TotalWorkingYears').value).subscribe();
+    this.router.navigate(['/visualization']);
 
   }
 
